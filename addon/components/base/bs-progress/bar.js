@@ -19,8 +19,9 @@ export default Component.extend(TypeClass, {
   layout,
   classNames: ['progress-bar'],
   classNameBindings: ['progressBarStriped'],
+  ariaRole: 'progressbar',
 
-  attributeBindings: ['style', 'ariaValuenow', 'ariaValuemin', 'ariaValuemax'],
+  attributeBindings: ['style', 'aria-valuenow', 'aria-valuemin', 'aria-valuemax'],
 
   /**
    * The lower limit of the value range
@@ -105,9 +106,9 @@ export default Component.extend(TypeClass, {
   progressBarStriped: readOnly('striped'),
   progressBarAnimate: readOnly('animate'),
 
-  ariaValuenow: readOnly('value'),
-  ariaValuemin: readOnly('minValue'),
-  ariaValuemax: readOnly('maxValue'),
+  'aria-valuenow': readOnly('value'),
+  'aria-valuemin': readOnly('minValue'),
+  'aria-valuemax': readOnly('maxValue'),
 
   /**
    * The percentage of `value`

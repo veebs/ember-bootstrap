@@ -50,6 +50,8 @@ module('Integration | Component | bs-progress', function(hooks) {
         </div>
       `);
 
+    assert.dom('.progress-bar').hasAttribute('role', 'progressbar');
+
     testData.forEach((data) => {
       let { value } = data;
       let minValue = data.minValue || 0;
@@ -59,6 +61,9 @@ module('Integration | Component | bs-progress', function(hooks) {
       this.setProperties(data);
 
       assert.equal(this.element.querySelector('.progress-bar').offsetWidth, expectedWidth, 'Progress bar has expected width.');
+      assert.dom('.progress-bar').hasAttribute('aria-valuenow', String(value));
+      assert.dom('.progress-bar').hasAttribute('aria-valuemin', String(minValue));
+      assert.dom('.progress-bar').hasAttribute('aria-valuemax', String(maxValue));
     });
 
   });
